@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Farmu Web Tools</title>
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="css/styles.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="js/url-shortener.js"></script>
+    <script src="js/img-resize.js"></script>
+</head>
+  <body>
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1>Farmu Web Tools</h1>
+      <br>
+      <hr class="solid">
+      <h3>Acortador de URLs</h3>
+
+      <form id="shortenerForm" action="" method="POST">
+        <div id="url-group" class="form-group">
+          <label for="url">Ingresa una URL original o una ya acortada</label>
+          <input
+            type="text"
+            class="form-control"
+            id="url"
+            name="url"
+            placeholder="Url"
+          />
+        </div>
+        <div id="short-url" class="alert alert-success">Url Corta:</div>
+        <button id="shortenerButton" type="submit" class="btn btn-success">
+          Crear Url Corta
+        </button>
+      </form>
+      <br>
+      <hr class="solid">
+      <h3>Redimencionador de Imagenes</h3>
+
+      <form id="imgResizeForm" enctype="multipart/form-data"  method="POST">
+        <div id="img-group" class="form-group">
+          <label for="imgFile">Sube una imagen en formato png o jpg</label>
+          <input id="imgFile" type="file" name="imgFile" accept=".jpg,.jpeg,.png" class="form-control">
+          <label for="imgWidth">Ancho</label>
+          <input id="imgWidth" type="number" name="imgWidth" placeholder="ancho" min="0" max="2000" class="form-control" value="200" />
+          <label for="imgHeigth">Alto</label>
+          <input id="imgHeigth" type="number" name="imgHeigth" placeholder="alto" min="0" max="2000" class="form-control" value="200" />
+        </div>
+        <div id="img-result" class="alert alert-success">Resultado:</div>
+        <button id="imgResizeButton" type="submit" class="btn btn-success">
+          Procesar
+        </button> 
+      </form>
+
+    </div>
+  </body>
+</html>

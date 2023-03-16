@@ -1,0 +1,56 @@
+version: '2'
+
+services:
+  ttf-mongodb:
+    container_name: ttf-mongodb
+    image: mongo
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 4080:27017
+    networks:
+      - farmu-chalenge
+  ttf-tools-short-url-api:
+    container_name: ttf-tools-short-url-api
+    build:
+      context: backend/web-tools-short-url-api
+      dockerfile: Dockerfile
+    image: ttf-tools-short-url-api
+    environment:
+      - SCOPE_SUFFIX=test
+      - PORT=5080
+      - SHORTENER_BASE_URL=http://localhost:5080/
+      - MONGODB_URI=mongodb://ttf-mongodb:27017
+    depends_on:
+      - ttf-mongodb
+    ports:
+      - 5080:5080
+    networks:
+      - farmu-chalenge
+  ttf-tools-img-resize-api:
+    container_name: ttf-tools-img-resize-api
+    build:
+      context: backend/web-tools-img-resize-api
+      dockerfile: Dockerfile
+    image: ttf-tools-img-resize-api
+    environment:
+      - SCOPE_SUFFIX=test
+      - PORT=6080
+    ports:
+      - 6080:6080
+    networks:
+      - farmu-chalenge
+  ttf-web-tools-ui:
+    container_name: ttf-web-tools-ui
+    build:
+      context: frontend/farmu-web-tools
+      dockerfile: Dockerfile
+    image: ttf-web-tools-ui
+    ports:
+      - 7080:80
+    depends_on:
+      - ttf-tools-short-url-api
+      - ttf-tools-img-resize-api
+networks:
+    farmu-chalenge:
+        driver: bridge
