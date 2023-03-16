@@ -4,12 +4,13 @@
 ## Prerequisitos
 
 Con el fin de ejecutar la aplicación de forma local se requiere que tengas instalado en tu máquina el siguiente software:
-	* **Maven**, asegurate de tener configuradas las variables de entorno para ejecutarlo desde consola. [Instrucciones de instalación](https://maven.apache.org/download.cgi)
-	* **Docker Desktop**, puedes encontrar las instrucciones de instalación en el [Docker website](https://www.docker.com/products/docker-desktop/).
+
+* **Maven**, asegurate de tener configuradas las variables de entorno para ejecutarlo desde consola. [Instrucciones de instalación](https://maven.apache.org/download.cgi)
+* **Docker Desktop**, puedes encontrar las instrucciones de instalación en el [Docker website](https://www.docker.com/products/docker-desktop/).
 
 ## Instalación
 
-La aplicación requiere que los siguientes puertos en tu máquina esten disponibles: 4080, 5080, 6080 y 7080. Si alguno de estos puertos está ocupado puedes cambiarlo desde el archivo **docker-compose.yml**.
+La aplicación requiere que los siguientes puertos en tu máquina esten disponibles: **4080, 5080, 6080 y 7080**. Si alguno de estos puertos está ocupado puedes cambiarlo desde el archivo **docker-compose.yml**.
 
 Para ejecutar la aplicación sigue los siguientes pasos:
 1. Descarga o clona el repositorio de github desde [https://github.com/akane34/farmu-challenge.git](https://github.com/akane34/farmu-challenge.git)
